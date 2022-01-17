@@ -1,3 +1,6 @@
 fastapi
 uvicorn
 tensorflow-cpu
+numpy
+PIL
+io
