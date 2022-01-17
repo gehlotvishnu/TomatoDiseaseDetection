@@ -33,7 +33,7 @@ async def predict(
 ):
     image = read_file_as_image(await file.read())
     img_batch = np.expand_dims(image, 0)
-    model = tf.keras.models.load_model('/codebasic_model_16012022.h5')
+    model = tf.keras.models.load_model('codebasic_model_16012022.h5')
     prediction = model.predict(img_batch)
     predicted_class = CLASS_NAMES[np.argmax(prediction)]
     confidence = np.max(prediction)
