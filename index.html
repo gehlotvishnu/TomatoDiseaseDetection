@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+<script>
+
+    function predict(){
+        var url='http://dummy.restapiexample.com/api/v1/create';
+        var user ={"name":"vishnu","salary": "120","age":"33"};
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(user)
+        }).then(result => result.json()).then(json=>{console.log(json)})
+
+    }
+
+    function predict1(){
+        var url='https://tomatodiseasedetection.herokuapp.com/predict';        
+        var myFileInput= document.getElementById("myFileInput");
+        console.log(myFileInput)
+        var file = myFileInput.files[0];
+        console.log(file)
+
+        var formData = new FormData();
+        formData.append("file",file)
+        fetch(url,{
+            method:'POST',
+            body: formData
+        }).then(result => result.json()).then(json=>{console.log(json)})
+    }
+</script>
+
+
+<form class="form">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="file" id="myFileInput" accept="image/*;capture=camera" onchange="predict1();">
+  <input type="button" value="Submit" onclick="predict();">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>
