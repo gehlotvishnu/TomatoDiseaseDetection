@@ -19,6 +19,11 @@ CLASS_NAMES= ['Tomato___Bacterial_spot',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
 
+@app.get("/")
+async def read_index():
+    return FileResponse('index.html')
+
+
 @app.get("/ping")
 async def ping():
     return "Hello, I am alive"
