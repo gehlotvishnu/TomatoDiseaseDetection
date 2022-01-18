@@ -4,9 +4,7 @@ from io import BytesIO
 from PIL import Image
 import tensorflow as tf
 
-
 app = FastAPI()
-
 
 CLASS_NAMES= ['Tomato___Bacterial_spot',
  'Tomato___Early_blight',
@@ -22,7 +20,6 @@ CLASS_NAMES= ['Tomato___Bacterial_spot',
 @app.get("/")
 async def read_index():
     return FileResponse('index.html')
-
 
 @app.get("/ping")
 async def ping():
